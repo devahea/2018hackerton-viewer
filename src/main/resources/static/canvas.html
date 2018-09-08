@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello canvas</title>
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div id="main-content" class="container">
+
+
+</div>
+</body>
+<script type="text/javascript">
+
+
+    function createMap(id, width, height) {
+
+
+        $("#main-content").append("<canvas id=\"canvas" + id + "\"></canvas>")
+
+        var c = document.getElementById("canvas" + id);
+        var ctx = c.getContext("2d");
+        ctx.font="15px Arial";
+
+        var rectSize = 25;
+        var startPoint ={x:25, y:25};
+
+        for (i = 0 ; i <  width; i++) {
+            for (j = 0 ; j <  height; j++) {
+                ctx.rect(startPoint.x + (rectSize * i), startPoint.y + (rectSize * j), rectSize, rectSize);
+            }
+        }
+
+        // ctx.fillText("1", 35, 40);
+        ctx.stroke();
+
+
+        $("#myCanvas").width(width * rectSize + startPoint.x);
+        $("#myCanvas").height(height * rectSize + startPoint.y);
+
+    }
+
+
+
+</script>
+</html>
